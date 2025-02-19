@@ -1,2 +1,2 @@
 # icecubev1.github.io
-hello
+github.io does NOT work yet the link is netifly.app for now
