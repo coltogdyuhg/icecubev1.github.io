@@ -2,7 +2,7 @@
 <html>
 <head>
 
-    <p style="color: aqua;"> WARNING: i will be adding a back arrow soon the back arrow will go to the home page then you may wish to click whatever you like there will also be a page1 & 2 button to have more games & apps.</p>
+    <h1 style="color: red;"> PAGE:1 <h1>
     
 
 <style>
@@ -17,6 +17,7 @@
 
 
   <style>
+
     body {
       display: flex;
       justify-content: center;
@@ -36,7 +37,7 @@
       background-color: transparent;
       border: 2px solid #4285f4;
       border-radius: 5px;
-      color: white;
+      color: red;
       padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;
@@ -52,10 +53,10 @@
 <body>
 
   <div class="button-container">
-      <a href="home.html"> <button>HOME BUTTON</button> </a>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button>
+      <a href="home.html"> <button>HOME BUTTON</button> </a>  <button>HOME</button>
+    <button>SLOWROADS</button>
+    <button>1V1.LOL</button>
+    <button>COREBALL</button>
     <button>HOME</button>
     <button>HOME</button>
     <button>HOME</button> 
@@ -82,9 +83,60 @@
     <button>HOME</button>
     <button>HOME</button>
     <button>HOME</button>
-    <button>HOME</button>
-    <button>PAGE 2 >></button>
+    <button>PAGE 1</button>
+    <a href="real-games-rn PAGE 2.html"> <button>PAGE 2</button> </a>
   </div>
+  </div>
+
+
+    <style>
+      body {
+        /* Remove flex properties that interfere with absolute positioning */
+        min-height: 100vh;
+        background-color: #f0f0f0;
+        position: relative; /* Make body a positioning context */
+      }
+  
+      .container {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+  
+      button {
+        background-color: transparent;
+        border: 2px solid #4285f4;
+        border-radius: 5px;
+        color: red;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+      }
+  
+      button:hover {
+        background-color: #4285f4;
+        color: white;
+      }
+  
+      .bottom-right {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+  
+    <div class="container">
+    </div>
+  
+    <a href="home.index">
+      <button class="bottom-right">discord</button>
+    </a>
 
 
 
