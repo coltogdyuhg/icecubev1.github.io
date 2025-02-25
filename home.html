@@ -1,117 +1,91 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Ice Cube</title>
-    </head>
-    <body>
-        <center>
-         <h1 style="color: rgb(0, 255, 255);">Weclome to Ice Cube</h1>
-         <h2 style="color: aqua;">one of the best sites ever</h2>
-        </center>
-         <hr>
-    </body>
-</html>
-    <center>
-    <h1 style="color: aqua;">WARNING:this is only a temp home page bc it sucks but all buttons should work</h1>
-        <p style="color: aqua;">hellooooooo</p>
-    </center>
+<head>
 
-
-  <style>
-    .container { 
-      position: relative; 
-      display: flex; 
-      justify-content: space-between; 
-      width: 100%; 
-    }
-
-    button {
-      position: absolute; 
-      top: 10px; 
-      background-color: transparent;
-      border: 2px solid #4285f4;
-      border-radius: 5px;
-      color: #4285f4;
-      padding: 15px 60px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: all 0.3s ease; 
-    }
-
-    .left-button {
-      left: 10px; /* Adjust this value as needed */
-    }
-
-    .right-button {
-      right: 10px; /* Adjust this value as needed */
-    }
-
-    button:hover {
-      background-color: #4285f4;
-      color: white;
-    }
-
-    body {
-      background-image: url(xKkFJqojdSd8vJuvCLs5mU.jpg); 
-      height: 100vh;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-  </style>
-
-
-  <div class="container"> 
-    <a href="home.html">
-      <button class="left-button">HOME</button> 
-    </a>
-
-    <a href="real-games-rn 1.html">
-      <button>GAMES</button>
-    </a>
-
-    <a href="apps.html">
-      <button class="right-button">APPS</button> 
-    </a>
-  </div>
-
-
-        
-        <style>
-            body{
-                background-image: url(xKkFJqojdSd8vJuvCLs5mU.jpg);
-                height: 100vh;
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-            }
-        </style>
-
-        <style>
-
-          </style>
-
+    <style>
+        body{
+            background-image: url(unnamed.png);
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
 <style>
-  body {
-    position: relative; /* This is crucial for absolute positioning of children */
-  }
+body {
+  position: relative;
+  min-height: 100vh;
+}
 
-  .bottom-left-link {
-    position: absolute;
-    bottom: 20px; /* Adjust as needed */
-    left: 20px; /* Adjust as needed */
-  }
+.top-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+}
+
+button {
+  background-color: transparent;
+  border: 2px solid #4285f4;
+  border-radius: 5px;
+  color: #4285f4;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #4285f4;
+  color: white;
+}
+
+.bottom-buttons {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between; /* Space between left and right buttons */
+  align-items: center; /* Vertically center buttons */
+  padding: 0 20px;
+}
+
+.bottom-middle { /* Styles for the middle button */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+  bottom: 20px; /* Adjust vertical position if needed */
+}
+
 </style>
 </head>
 <body>
 
-  <a href="update-log.html" style="color: aqua;" class="bottom-left-link">
-    click me to see updates
+<div class="top-buttons">
+  <a href="youtube.com">
+    <button>HOME</button>
   </a>
-        
+  <a href="youtube.com">
+    <button>GAMES</button>
+  </a>
+  <a href="youtube.com">
+    <button>APPS</button>
+  </a>
+</div>
 
+<div class="bottom-buttons">
+  <a href="youtube.com">
+    <button>UPDATES</button>
+  </a>
+  <a href="youtube.com" class="bottom-right">
+    <button>DISCORD</button>
+  </a>
+</div>
 
-        
+<a href="youtube.com" class="bottom-middle">
+  <button>OTHER THINGS</button>
+</a>
 
-    </body>
-    </html>
+</body>
+</html>
