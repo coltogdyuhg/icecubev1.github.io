@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Poll and Plexus</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-image: url("xKkFJqojdSd8vJuvCLs5mU copy.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      font-family: sans-serif;
+      color: white;
+      display: flex; /* Use flexbox for centering */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      height: 100vh;
+    }
+
+    .poll-container {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .poll-option {
+      margin: 10px;
+      padding: 15px 20px;
+      border: 2px solid white;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .poll-option:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    #results {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    canvas {
+      display: block;
+      position: absolute; /* Needed for canvas to fill screen while poll is centered */
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1; /* Place canvas behind the poll */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="poll-container">
+    <h2>Which home page design do you prefer?</h2>
+    <div class="poll-option" onclick="vote('plexus')">Plexus Design</div>
+    <div class="poll-option" onclick="vote('star')">Star (Current)</div>
+    <div id="results"></div>
+  </div>
+
+  <canvas id="myCanvas"></canvas>
+
+  <script>
+    // Poll Script
+    let votes = {
+      plexus: 0,
+      star: 0
+    };
+
+    function vote(option) {
+      votes[option]++;
+      showResults();
+      disableVoting();
+    }
+
+    function showResults() {
+      const totalVotes = votes.plexus + votes.star;
+      const resultsDiv = document.getElementById('results');
+      let plexusPercent = 0;
+      let starPercent = 0;
+      if (totalVotes > 0) {
+        plexusPercent = (votes.plexus / totalVotes) * 100;
+        starPercent = (votes.star / totalVotes) * 100;
+      }
+
+      resultsDiv.innerHTML = `
+        Plexus: ${plexusPercent.toFixed(2)}% (${votes.plexus} votes)<br>
+        Star: ${starPercent.toFixed(2)}% (${votes.star} votes)
+      `;
+    }
+
+    function disableVoting() {
+      const options = document.querySelectorAll('.poll-option');
+      options.forEach(option => {
+        option.onclick = null;
+        option.style.cursor = 'default';
+      });
+    }
+
+    // Canvas Script
+    const canvas = document.getElementById('myCanvas');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const ctx = canvas.getContext('2d');
+
+    const dots = [];
+    const numDots = 150;
+    const maxDistance = 150;
+
+    for (let i = 0; i < numDots; i++) {
+      dots.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: Math.random() * 4 - 2,
+        vy: Math.random() * 4 - 2,
+        radius: Math.random() * 4 + 2,
+        color: 'deepskyblue'
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = 0; i < numDots; i++) {
+        const dot1 = dots[i];
+
+        dot1.x += dot1.vx;
+        dot1.y += dot1.vy;
+
+        if (dot1.x > canvas.width + dot1.radius || dot1.x < -dot1.radius) {
+          dot1.vx = -dot1.vx;
+        }
+        if (dot1.y > canvas.height + dot1.radius || dot1.y < -dot1.radius) {
+          dot1.vy = -dot1.vy;
+        }
+
+        ctx.beginPath();
+        ctx.arc(dot1.x, dot1.y, dot1.radius, 0, Math.PI * 2);
+        ctx.fillStyle = dot1.color;
+        ctx.fill();
+
+        for (let j = i + 1; j < numDots; j++) {
+          const dot2 = dots[j];
+          const distance = Math.sqrt((dot1.x - dot2.x) ** 2 + (dot1.y - dot2.y) ** 2);
+
+          if (distance < maxDistance) {
+            ctx.beginPath();
+            ctx.moveTo(dot1.x, dot1.y);
+            ctx.lineTo(dot2.x, dot2.y);
+            ctx.strokeStyle = `rgba(0, 255, 0, ${1 - distance / maxDistance})`;
+            ctx.lineWidth = (1 - distance / maxDistance) * 2;
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+  </script>
+
+</body>
+</html>
