@@ -1,126 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LearningSpot Login</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            background-color: #222;
-            color: #FFD700;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
-        }
+  <title>ixl</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-image: url('xKkFJqojdSd8vJuvCLs5mU.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      min-height: 100vh;
+    }
 
-        .login-container {
-            width: 80%;
-            max-width: 600px;
-            padding: 40px;
-            background-color: #333;
-            border-radius: 10px;
-        }
+    .background-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      transition: opacity 0.2s ease;
+    }
 
-        .logo {
-            font-size: 2em;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #4169E1;
-        }
+    .popup-menu {
+      background-color: black;
+      color: white;
+      padding: 30px;
+      text-align: center;
+      width: 33.33%;
+      height: 33.33vw;
+      font-weight: bold;
+    }
 
-        .login-title {
-            font-size: 1.5em;
-            margin-bottom: 30px;
-        }
+    .background-overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
 
-        .input-group {
-            margin-bottom: 20px;
-        }
+    .star {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: white;
+      border-radius: 50%;
+      animation: fall linear infinite;
+      animation-duration: 2.5s;
+    }
 
-        .input-group input {
-            width: calc(100% - 22px);
-            padding: 10px;
-            border: 2px solid #4169E1;
-            border-radius: 5px;
-            background-color: #444;
-            color: #FFD700;
-            box-sizing: border-box;
-        }
+    @keyframes fall {
+      0% {
+        transform: translateY(-50%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(100vh);
+        opacity: 1;
+      }
+    }
 
-        .input-group input:focus {
-            outline: none;
-            border-color: #6495ED;
-        }
+    .top-buttons {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 20px;
+    }
 
-        .side-text {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
-            font-size: 0.9em;
-        }
+    button {
+      background-color: transparent;
+      border: 2px solid #4285f4;
+      border-radius: 5px;
+      color: #4285f4;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
 
-        .side-text div {
-            width: 45%;
-            text-align: left;
-        }
+    button:hover {
+      background-color: #4285f4;
+      color: white;
+    }
 
-        .create-account {
-            margin-top: 20px;
-        }
+    .bottom-buttons {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
 
-        .create-account a {
-            color: #4169E1;
-            text-decoration: none;
-        }
-
-        .create-account a:hover {
-            text-decoration: underline;
-        }
-
-    </style>
+    .bottom-middle {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 20px;
+    }
+  </style>
 </head>
 <body>
-    <div class="login-container">
-        <div class="logo">LEARNINGSPOT</div>
-        <div class="login-title">LOGIN</div>
 
-        <div class="side-text">
-            <div>Give kids the experience of the greatness of learning!</div>
-            <div>Have a one month free trial. Don't need to enter any info for the trial!</div>
-        </div>
+  <div class="main-content">
+    
+  </div>
 
-        <form id="loginForm">
-            <div class="input-group">
-                <input type="text" id="username" placeholder="EMAIL OR USERNAME">
-            </div>
-            <div class="input-group">
-                <input type="password" id="password" placeholder="PASSWORD OR LOGIN KEY">
-            </div>
-            <input type="submit" value="Login" style="display: none;">
-        </form>
-
-        <div class="create-account">
-            Don't have a account? <a href="#">Create one!</a>
-        </div>
+  <div class="background-overlay">
+    <div class="popup-menu">
+      <p>Click anywhere to continue</p>
+      <p>alot... alot changed</p>
+       <a href="poll.html">POLL CLICK ME TO SEE IT</a> 
+       <p>discord links may be expired also new contact thingie will be coming soon</p>
     </div>
+  </div>
 
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+  <div class="top-buttons">
+    <a href="home.html">
+      <button>HOME</button>
+    </a>
+    <a href="real-games-rn 1.html">
+      <button>GAMES</button>
+    </a>
+    <a href="apps.html">
+      <button>APPS</button>
+    </a>
+  </div>
 
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+  <div class="bottom-buttons">
+    <a href="update-log.html">
+      <button>UPDATES</button>
+    </a>
+    <a href="https://netifly.app" class="bottom-right">
+      <button>DISCORD</button>
+    </a>
+  </div>
 
-            if (username === 'icecubev1' && password === 'icecubev1') {
-                window.location.href = 'https://icecubev1.netlify.app/';
-            } else {
-                alert('Incorrect email or password.');
-            }
-        });
-    </script>
+  <a href="morebuttons.html" class="bottom-middle">
+    <button>OTHER THINGS</button>
+  </a>
+
+  <script>
+    const overlay = document.querySelector('.background-overlay');
+
+    overlay.addEventListener('click', () => {
+      overlay.classList.add('hidden');
+      setTimeout(() => {
+        overlay.style.display = 'none';
+      }, 200);
+    });
+
+    function createStar() {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.animationDelay = `${Math.random() * 10}s`;
+      star.style.top = `${Math.random() * -50}%`;
+      document.body.appendChild(star);
+    }
+
+    for (let i = 0; i < 200; i++) {
+      createStar();
+    }
+
+    setInterval(createStar, 500);
+  </script>
+<script>
+    window.location.href = 'https://learning-spot.netlify.app/';
+</script>
 </body>
 </html>
