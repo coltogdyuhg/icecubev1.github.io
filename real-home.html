@@ -6,12 +6,14 @@
     body {
       margin: 0;
       overflow: hidden;
-      background-image: url('xKkFJqojdSd8vJuvCLs5mU.jpg'); /* Use the correct image path */
+      background-image: url('xKkFJqojdSd8vJuvCLs5mU.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      position: relative; /* For absolute positioning of bottom buttons */
-      min-height: 100vh; /* Ensure body fills the viewport */
+      position: relative;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
     }
 
     .background-overlay {
@@ -20,22 +22,38 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
+      background-color: rgba(0, 0, 0, 0.8);
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 1000;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.3s ease;
     }
 
     .popup-menu {
-      background-color: black;
+      background-color: rgba(0, 0, 0, 0.9);
       color: white;
-      padding: 30px;
+      padding: 40px;
       text-align: center;
-      width: 33.33%;
-      height: 33.33vw;
+      width: 50%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .popup-menu p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .popup-menu a {
+      color: #4285f4;
+      text-decoration: none;
       font-weight: bold;
+    }
+
+    .popup-menu a:hover {
+      text-decoration: underline;
     }
 
     .background-overlay.hidden {
@@ -45,12 +63,12 @@
 
     .star {
       position: absolute;
-      width: 10px;
-      height: 10px;
-      background-color: white;
+      width: 3px;
+      height: 3px;
+      background-color: rgba(255, 255, 255, 0.7);
       border-radius: 50%;
       animation: fall linear infinite;
-      animation-duration: 2.5s;
+      animation-duration: 3s;
     }
 
     @keyframes fall {
@@ -66,20 +84,32 @@
 
     .top-buttons {
       display: flex;
-      justify-content: space-between;
-      width: 100%;
+      justify-content: center;
+      align-items: center;
       padding: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      box-shadow: 0 0 20px 5px rgba(128, 0, 128, 0.7);
+      margin: 20px auto;
+      position: relative;
+      z-index: 2;
+      width: auto;
+    }
+
+    .top-buttons a {
+      margin: 0 10px;
     }
 
     button {
-      background-color: transparent;
+      background-color: rgba(255, 255, 255, 0.1);
       border: 2px solid #4285f4;
-      border-radius: 5px;
+      border-radius: 8px;
       color: #4285f4;
-      padding: 10px 20px;
+      padding: 12px 25px;
       font-size: 16px;
       cursor: pointer;
       transition: all 0.3s ease;
+      font-weight: 600;
     }
 
     button:hover {
@@ -95,7 +125,16 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 20px;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      box-shadow: 0 0 20px 5px rgba(128, 0, 128, 0.7);
+      width: auto;
+      margin: 0 auto;
+    }
+
+    .bottom-buttons button {
+      padding: 12px 20px;
     }
 
     .bottom-middle {
@@ -103,6 +142,12 @@
       left: 50%;
       transform: translateX(-50%);
       bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .bottom-middle a {
+      text-decoration: none !important; /* Force override */
     }
   </style>
 </head>
@@ -115,36 +160,26 @@
   <div class="background-overlay">
     <div class="popup-menu">
       <p>Click anywhere to continue</p>
-      <p>alot... alot changed</p>
-       <a href="poll.html">POLL CLICK ME TO SEE IT</a> 
-       <p>discord links may be expired also new contact thingie will be coming soon</p>
+      <p>A lot... a lot changed.</p>
+      <a href="poll.html">POLL - CLICK ME TO SEE IT</a>
+      <p>Discord links may be expired. A new contact feature is coming soon.</p>
     </div>
   </div>
 
   <div class="top-buttons">
-    <a href="home.html">
-      <button>HOME</button>
-    </a>
-    <a href="real-games-rn 1.html">
-      <button>GAMES</button>
-    </a>
-    <a href="apps.html">
-      <button>APPS</button>
-    </a>
+    <a href="home.html"><button>HOME</button></a>
+    <a href="real-games-rn 1.html"><button>GAMES</button></a>
+    <a href="apps.html"><button>APPS</button></a>
   </div>
 
   <div class="bottom-buttons">
-    <a href="update-log.html">
-      <button>UPDATES</button>
-    </a>
-    <a href="https://netifly.app" class="bottom-right">
-      <button>DISCORD</button>
-    </a>
+    <a href="update-log.html"><button>UPDATE LOG</button></a>
+    <a href="https://discord.com/invite/YOUR_DISCORD_INVITE" target="_blank"><button>DISCORD</button></a>
   </div>
 
-  <a href="morebuttons.html" class="bottom-middle">
-    <button>OTHER THINGS</button>
-  </a>
+  <div class="bottom-middle">
+    <a href="morebuttons.html"><button>MORE THINGS</button></a>
+  </div>
 
   <script>
     const overlay = document.querySelector('.background-overlay');
@@ -153,7 +188,7 @@
       overlay.classList.add('hidden');
       setTimeout(() => {
         overlay.style.display = 'none';
-      }, 200);
+      }, 300);
     });
 
     function createStar() {
@@ -165,11 +200,11 @@
       document.body.appendChild(star);
     }
 
-    for (let i = 0; i < 200; i++) {
+    for (let i = 0; i < 300; i++) {
       createStar();
     }
 
-    setInterval(createStar, 500);
+    setInterval(createStar, 300);
   </script>
 
 </body>
