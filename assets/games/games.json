@@ -1,0 +1,222 @@
+[
+    {
+        "name": "Retrobowl",
+        "url": "/assets/games/retro-bowl/index.html",
+        "image": "/assets/images/retrobowl.jpg"
+    },
+    {
+        "name": "Eaglercraft",
+        "url": "/assets/games/eaglercraft/index.html",
+        "image": "/assets/images/eaglercraft.jpg"
+    },
+    {
+        "name": "1v1.lol",
+        "url": "/assets/games/1v1lol/index.html",
+        "image": "/assets/images/1v1lol.jpg"
+    },
+    {
+        "name": "Google Feud",
+        "url": "/assets/games/google-feud/index.html",
+        "image": "/assets/images/googlefued.jpg"
+    },
+    {
+        "name": "Tiny Fishing",
+        "url": "/assets/games/tiny-fishing/index.html",
+        "image": "/assets/images/tinyfishing.jpg"
+    },
+    {
+        "name": "Bad Monday Sim",
+        "url": "/assets/games/badmondaysim/index.html",
+        "image": "/assets/images/badmondaysim.jpg"
+    },
+    {
+        "name": "Slope",
+        "url": "/assets/games/slope/index.html",
+        "image": "/assets/images/slope.jpg"
+    },
+    {
+        "name": "Slope 2",
+        "url": "/assets/games/slope-2/index.html",
+        "image": "/assets/images/slope2.jpg"
+    },
+    {
+        "name": "Coreball",
+        "url": "/assets/games/core-ball/index.html",
+        "image": "/assets/images/coreball.jpg"
+    },
+    {
+        "name": "Bitlife",
+        "url": "/assets/games/bitlife/index.html",
+        "image": "/assets/images/bitlife.jpg"
+    },
+    {
+        "name": "Geometry Dash",
+        "url": "/assets/games/geo-dash/index.html",
+        "image": "/assets/images/geodash.jpg"
+    },
+    {
+        "name": "Just Fall",
+        "url": "/assets/games/just-fall/index.html",
+        "image": "/assets/images/justfall.jpg"
+    },
+    {
+        "name": "Flappy Bird",
+        "url": "/assets/games/flappybird/index.html",
+        "image": "/assets/images/flappybird.jpg"
+    },
+    {
+        "name": "Basketball Stars",
+        "url": "/assets/games/basketball-stars/index.html",
+        "image": "/assets/images/basketballstars.jpg"
+    },
+    {
+        "name": "2048-multitask",
+        "url": "/assets/games/2048-multitask/index.html",
+        "image": "/assets/images/2048multitask.jpg"
+    },
+    {
+        "name": "2048",
+        "url": "/assets/games/2048/index.html",
+        "image": "/assets/images/2048.jpg"
+    },
+    {
+        "name": "9007199254740992",
+        "url": "/assets/games/9007199254740992/index.html",
+        "image": "/assets/images/9007199254740992.jpg"
+    },
+    {
+        "name": "awesometanks2",
+        "url": "/assets/games/awesometanks2/index.html",
+        "image": "/assets/images/awesometanks2.jpg"
+    },
+    {
+        "name": "bad-ice-cream-2",
+        "url": "/assets/games/bad-ice-cream-2/index.html",
+        "image": "/assets/images/badicecream2.jpg"
+    },
+    {
+        "name": "bad-ice-cream-3",
+        "url": "/assets/games/bad-ice-cream-3/index.html",
+        "image": "/assets/images/badicecream3.jpg"
+    },
+    {
+        "name": "bad-ice-cream",
+        "url": "/assets/games/bad-ice-cream/index.html",
+        "image": "/assets/images/badicecream.jpg"
+    },
+    {
+        "name": "basket-random",
+        "url": "/assets/games/basket-random/index.html",
+        "image": "/assets/images/basketrandom.jpg"
+    },
+    {
+        "name": "doge2048",
+        "url": "/assets/games/doge2048/index.html",
+        "image": "/assets/images/doge2048.jpg"
+    },
+    {
+        "name": "ducklife1",
+        "url": "/assets/games/ducklife1/index.html",
+        "image": "/assets/images/ducklife1.jpg"
+    },
+    {
+        "name": "ducklife2",
+        "url": "/assets/games/ducklife2/index.html",
+        "image": "/assets/images/ducklife2.jpg"
+    },
+    {
+        "name": "ducklife3",
+        "url": "/assets/games/ducklife3/index.html",
+        "image": "/assets/images/ducklife3.jpg"
+    },
+    {
+        "name": "ducklife4",
+        "url": "/assets/games/ducklife4/index.html",
+        "image": "/assets/images/ducklife4.jpg"
+    },
+    {
+        "name": "gunspin",
+        "url": "/assets/games/gunspin/index.html",
+        "image": "/assets/images/gunspin.jpg"
+    },
+    {
+        "name": "impossiblequiz",
+        "url": "/assets/games/impossiblequiz/index.html",
+        "image": "/assets/images/impossiblequiz.jpg"
+    },
+    {
+        "name": "basketbrosio",
+        "url": "/assets/games/basketbrosio/index.html",
+        "image": "/assets/images/basketbrosio.jpg"
+    },
+    {
+        "name": "chrome-dino",
+        "url": "/assets/games/chrome-dino/index.html",
+        "image": "/assets/images/chromedino.jpg"
+    },
+    {
+        "name": "cupcake2048",
+        "url": "/assets/games/cupcake2048/index.html",
+        "image": "/assets/images/cupcake2048.jpg"
+    },
+    {
+        "name": "driftboss",
+        "url": "/assets/games/driftboss/index.html",
+        "image": "/assets/images/driftboss.jpg"
+    },
+    {
+        "name": "infinitecraft",
+        "url": "/assets/games/infinitecraft/index.html",
+        "image": "/assets/images/infinitecraft.jpg"
+    },
+    {
+        "name": "learntofly",
+        "url": "/assets/games/learntofly/index.html",
+        "image": "/assets/images/learntofly.jpg"
+    },
+    {
+        "name": "learntofly2",
+        "url": "/assets/games/learntofly2/index.html",
+        "image": "/assets/images/learntofly2.jpg"
+    },
+    {
+        "name": "meme2048",
+        "url": "/assets/games/meme2048/index.html",
+        "image": "/assets/images/meme2048.jpg"
+    },
+    {
+        "name": "motox3m",
+        "url": "/assets/games/motox3m/index.html",
+        "image": "/assets/images/motox3m.jpg"
+    },
+    {
+        "name": "motox3mpool",
+        "url": "/assets/games/motox3mpool/index.html",
+        "image": "/assets/images/motox3mpool.jpg"
+    },
+    {
+        "name": "motox3mspooky",
+        "url": "/assets/games/motox3mspooky/index.html",
+        "image": "/assets/images/motox3mspooky.jpg"
+    },
+    {
+        "name": "motox3mwinter",
+        "url": "/assets/games/motox3mwinter/index.html",
+        "image": "/assets/images/motox3mwinter.jpg"
+    },
+    {
+        "name": "vex",
+        "url": "/assets/games/vex/index.html",
+        "image": "/assets/images/vex.jpg"
+    },
+    {
+        "name": "vex2",
+        "url": "/assets/games/vex2/index.html",
+        "image": "/assets/images/vex2.jpg"
+    },
+    {
+        "name": "volley-random",
+        "url": "/assets/games/volley-random/index.html",
+        "image": "/assets/images/volley-random.jpg"
+    }
+]
