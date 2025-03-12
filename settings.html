@@ -10,10 +10,13 @@
             background-position: center;
             background-repeat: no-repeat;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             position: relative;
             overflow: hidden;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
         }
 
         .settings-box {
@@ -26,6 +29,7 @@
             position: relative;
             color: white;
             z-index: 2;
+            margin-top: 50px;
         }
 
         .settings-title {
@@ -62,9 +66,52 @@
                 opacity: 0;
             }
         }
+
+        .top-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 20px 5px rgba(128, 0, 128, 0.7);
+            position: relative;
+            z-index: 2;
+            width: 80%; /* Increased width */
+            max-width: 800px; /*increased max width*/
+            margin-top: 20px;
+        }
+
+        .top-buttons a {
+            margin: 0 10px;
+        }
+
+        button {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid #4285f4;
+            border-radius: 8px;
+            color: #4285f4;
+            padding: 12px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        button:hover {
+            background-color: #4285f4;
+            color: white;
+        }
+
     </style>
 </head>
 <body>
+
+    <div class="top-buttons">
+        <a href="home.html"><button>HOME</button></a>
+        <a href="real-games-rn 1.html"><button>GAMES</button></a>
+        <a href="apps.html"><button>APPS</button></a>
+    </div>
 
     <div class="settings-box">
         <div class="settings-title">Settings</div>
@@ -77,9 +124,9 @@
             const star = document.createElement('div');
             star.classList.add('star');
             star.style.left = `${Math.random() * 100}%`;
-            star.style.animationDelay = `${Math.random() * 3}s`; // Reduced delay
+            star.style.animationDelay = `${Math.random() * 3}s`;
             star.style.top = `${Math.random() * -50}vh`;
-            star.style.width = `${Math.random() * 2 + 2}px`; // Vary star size
+            star.style.width = `${Math.random() * 2 + 2}px`;
             star.style.height = star.style.width;
 
             star.addEventListener('animationend', () => {
@@ -95,9 +142,9 @@
             }
         }
 
-        populateStars(150); // Increased initial stars
+        populateStars(150);
 
-        setInterval(createStar, 100); // Increased creation speed
+        setInterval(createStar, 100);
     </script>
 
 </body>

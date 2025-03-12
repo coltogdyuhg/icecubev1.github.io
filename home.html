@@ -81,6 +81,25 @@
             text-decoration: underline;
         }
 
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            color: #FFD700;
+            font-size: 2em;
+        }
+
+        .loading-screen.show {
+            display: flex;
+        }
+
     </style>
 </head>
 <body>
@@ -108,6 +127,8 @@
         </div>
     </div>
 
+    <div class="loading-screen" id="loadingScreen">Loading...</div>
+
     <script>
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -115,11 +136,15 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            if (username === 'icecubev1' && password === 'icecubev1') {
-                window.location.href = 'real-home.html';
-            } else {
-                alert('Incorrect email or password.');
-            }
+            document.getElementById('loadingScreen').classList.add('show'); // Show loading screen
+
+            setTimeout(function() {
+                if (username === 'icecubev1' && password === 'icecubev1') {
+                    window.location.href = 'real-home.html';
+                } else {
+                    window.location.href = 'dashboard.html';
+                }
+            }, 1000); // Simulate loading time (1 second)
         });
     </script>
 </body>

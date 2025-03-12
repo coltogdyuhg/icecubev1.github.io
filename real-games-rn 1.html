@@ -1,145 +1,161 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>ixl</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            background-image: url(icecube2.webp);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
 
-    <h1 style="color: red;"> PAGE:1 <h1>
-    
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            animation: fall linear infinite;
+            animation-duration: 3s;
+        }
 
-<style>
-    body{
-        background-image: url(xKkFJqojdSd8vJuvCLs5mU.jpg);
-        height: 100vh;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-</style>
+        @keyframes fall {
+            0% {
+                transform: translateY(-50%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 1;
+            }
+        }
 
+        .top-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 20px 5px rgba(128, 0, 128, 0.7);
+            margin: 20px auto;
+            position: relative;
+            z-index: 2;
+            width: auto;
+        }
 
-  <style>
+        .top-buttons a {
+            margin: 0 10px;
+        }
 
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh; 
-      background-color: #f0f0f0; 
-    }
+        button, .custom-button {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid #4285f4;
+            border-radius: 8px;
+            color: #4285f4;
+            padding: 15px 25px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-decoration: none; /* remove underline from a tags */
+        }
 
-    .button-container {
-      display: flex;
-      flex-wrap: wrap; /* Allow buttons to wrap to the next row */
-      justify-content: center; 
-    }
+        button:hover, .custom-button:hover {
+            background-color: #4285f4;
+            color: white;
+        }
+        
+        .custom-button {
+            color: red; /* Make the custom button text red */
+        }
 
-    button {
-      margin: 10px; 
-      background-color: transparent;
-      border: 2px solid #4285f4;
-      border-radius: 5px;
-      color: red;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+        .bottom-middle {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 20px;
+        }
 
-    button:hover {
-      background-color: #4285f4;
-      color: white;
-    }
-  </style>
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            gap: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .button-container button {
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="button-container">
-      <a href="home.html"> <button>HOME BUTTON</button> </a>  <button>HOME</button>
-    <button>SLOWROADS</button>
-    <button>1V1.LOL</button>
-    <button>COREBALL</button>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button> 
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>HOME</button>
-    <button>PAGE 1</button>
-    <a href="real-games-rn PAGE 2.html"> <button>PAGE 2</button> </a>
-  </div>
-  </div>
-
-
-    <style>
-      body {
-        /* Remove flex properties that interfere with absolute positioning */
-        min-height: 100vh;
-        background-color: #f0f0f0;
-        position: relative; /* Make body a positioning context */
-      }
-  
-      .container {
-        position: relative;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-      }
-  
-      button {
-        background-color: transparent;
-        border: 2px solid #4285f4;
-        border-radius: 5px;
-        color: red;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        white-space: nowrap;
-      }
-  
-      button:hover {
-        background-color: #4285f4;
-        color: white;
-      }
-  
-      .bottom-right {
-        position: absolute;
-        bottom: 20px;
-        right: 20px;
-      }
-    </style>
-  </head>
-  <body>
-  
-    <div class="container">
+    <div class="main-content">
     </div>
-  
-    <a href="home.index">
-      <button class="bottom-right">discord</button>
-    </a>
 
+    <div class="top-buttons">
+        <a href="real-home.html">
+            <button>HOME</button>
+        </a>
+        <a href="real-games-rn 1.html">
+            <button>GAMES</button>
+        </a>
+        <a href="apps.html">
+            <button>APPS</button>
+        </a>
+    </div>
 
+    <div class="button-container">
+        <h1 style="grid-column: 1 / -1; color: red; text-align: center;">PAGE:1</h1>
+        <a href="https://slowroads132.netlify.app/" target="_blank" class="custom-button">SLOWROADS</a>
+        <button style="color: red;">COMING SOON</button>
+        <button style="color: red;">COMING SOON</button>
+        <button style="color: red;">COMING SOON</button>
+        <button style="color: red;">COMING SOON</button>
+        <button style="color: red;">COMING SOON</button>
+        <button style="color: red;">COMING SOON</button>
+        <button style="color: red;">COMING SOON</button>
+        <button style="color: red;">COMING SOON</button>
+        <button style="color: red;">COMING SOON</button>
+        <button style="color: red;">COMING SOON</button>
+        <button style="color: red;">COMING SOON</button>
+        <button style="color: red;">COMING SOON</button>
+        <button style="color: red;">COMING SOON</button>
+        <button style="color: red;">COMING SOON</button>
+        <button style="color: red;">COMING SOON</button>
+    </div>
 
+    <script>
+        function createStar() {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.animationDelay = `${Math.random() * 10}s`;
+            star.style.top = `${Math.random() * -50}%`;
+            document.body.appendChild(star);
+        }
 
+        for (let i = 0; i < 300; i++) {
+            createStar();
+        }
+
+        setInterval(createStar, 300);
+    </script>
 </body>
 </html>
