@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ixl</title>
+    <h1 style="color: aqua;">when will this page come? 
+        This proxy page is exspected to come soon but there is some
+        bad news aswell. Icecube might just turn into a (proxy site).
+        What i mean my that is that icecube might not have any games 
+        or apps. Why? well because you can do anything with a proxy
+        so it would be stupid right now to add apps and games. So right now 
+        games and apps pages will NOT be updated at all. (from the owner and dev of icecube)
+    </h1>
+    <style>
+        body {
+            background-image: url(iecube.webp);
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            margin: 0; /* Remove default body margin */
+            overflow: hidden; /* Prevent scrollbars */
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            animation: fall linear infinite;
+            animation-duration: 3s;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-50%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    function createStar() {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.animationDelay = `${Math.random() * 10}s`;
+        star.style.top = `${Math.random() * -50}%`;
+        document.body.appendChild(star);
+    }
+
+    for (let i = 0; i < 300; i++) {
+        createStar();
+    }
+
+    setInterval(createStar, 300);
+</script>
+
+</body>
+</html>

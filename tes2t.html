@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ixl</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            background-image: url(icecube2.webp);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .star {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            animation: fall linear infinite;
+            animation-duration: 3s;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-50%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 1;
+            }
+        }
+        /* rest of the css remains the same */
+        /* ... */
+    </style>
+</head>
+<body>
+    <script>
+        function createStar() {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            const size = Math.random() * 3 + 1; // Random size between 1 and 4 pixels
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.animationDelay = `${Math.random() * 10}s`;
+            star.style.top = `${Math.random() * -50}%`;
+            // Random color
+            const red = Math.random() * 255;
+            const green = Math.random() * 255;
+            const blue = Math.random() * 255;
+            star.style.backgroundColor = `rgba(${red}, ${green}, ${blue}, 0.7)`;
+
+            document.body.appendChild(star);
+            setTimeout(() => { star.remove() }, 3000);
+        }
+        // rest of the javascript remains the same.
+        // ...
+    </script>
+</body>
+</html>
