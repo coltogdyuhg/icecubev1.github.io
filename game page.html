@@ -21,6 +21,7 @@
       border-radius: 50%;
       opacity: 0.5;
       animation: twinkle 2s ease-in-out infinite, float 180s linear infinite;
+      z-index: 0;
     }
 
     @keyframes twinkle {
@@ -41,7 +42,7 @@
       position: fixed;
       top: 0;
       left: 0;
-      z-index: 20;
+      z-index: 10;
       overflow-x: hidden;
       transition: width 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
       padding-top: 20px;
@@ -97,10 +98,12 @@
       margin-left: 50px;
       transition: margin-left 0.3s ease-in-out;
       padding: 20px;
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
       gap: 20px;
-      justify-content: center;
+      justify-items: center;
+      z-index: 1;
+      position: relative;
     }
 
     .sidebar.expanded ~ .content {
@@ -118,6 +121,7 @@
       display: block;
       text-decoration: none;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      z-index: 1;
     }
 
     .image-container:hover {
@@ -164,15 +168,14 @@
       sidebar.classList.toggle('expanded');
     }
 
-    // Generate random stars in the background
     function generateStars() {
       const starContainer = document.body;
       for (let i = 0; i < 100; i++) {
         const star = document.createElement("div");
         star.classList.add("star");
-        const size = Math.random() * 3 + 1 + "px"; // Random size between 1px and 3px
-        const top = Math.random() * 100 + "%"; // Random vertical position
-        const left = Math.random() * 100 + "%"; // Random horizontal position
+        const size = Math.random() * 3 + 1 + "px";
+        const top = Math.random() * 100 + "%";
+        const left = Math.random() * 100 + "%";
         star.style.width = size;
         star.style.height = size;
         star.style.top = top;
@@ -181,7 +184,6 @@
       }
     }
 
-    // Call the function to generate stars on page load
     window.onload = generateStars;
   </script>
 </head>
@@ -193,39 +195,63 @@
       <i class="fa-solid fa-bars"></i>
     </div>
     <ul class="menu-items">
-      <li><a href="main-home.html">Home</a></li>
+      <li><a href="main-home.html" style="color: #87CEEB;">Home</a></li>
       <li><a href="game page.html" style="color: #87CEEB;">Games</a></li>
-      <li><a href="apps.html">Apps</a></li>
-      <li><a href="comingsoon.html">Settings</a></li>
-      <li><a href="https://discord.gg/KedkxJCkyc">Discord</a></li>
+      <li><a href="apps.html" style="color: #87CEEB;">Apps</a></li>
+      <li><a href="comingsoon.html" style="color: #87CEEB;">Settings</a></li>
+      <li><a href="https://discord.gg/KedkxJCkyc" style="color: #87CEEB;">Discord</a></li>
     </ul>
   </div>
 
   <!-- Content Area -->
   <div class="content">
-    <a href="windows11.html" target="_blank" class="image-container">
-      <img src="windows 11.jpeg" />
-      <div class="overlay"><div class="overlay-text">windows</div></div>
+    <a href="slowroads.html" target="_blank" class="image-container">
+      <img src="slowroadslogo.jpg" />
+      <div class="overlay"><div class="overlay-text">slowroads</div></div>
     </a>
-    <a href="temp-proxy.html" target="_blank" class="image-container">
-      <img src="web-icon-line-on-white-background-image-for-web-presentation-logo-icon-symbol-free-vector.jpg" />
-      <div class="overlay"><div class="overlay-text">proxy for now</div></div>
+    <a href="retrobowl.html" target="_blank" class="image-container">
+      <img src="retrobowllogo.avif" />
+      <div class="overlay"><div class="overlay-text">retrobowl</div></div>
     </a>
-    <a href="https://example.com" target="_blank" class="image-container">
-      <img src="https://yourwebsite.com/images/custom1.png" />
-      <div class="overlay"><div class="overlay-text">Custom 1</div></div>
+    <a href="clusterrush.html" target="_blank" class="image-container">
+      <img src="cluster-rush.jpg" />
+      <div class="overlay"><div class="overlay-text">Cluster rush</div></div>
     </a>
-    <a href="https://example.com" target="_blank" class="image-container">
-      <img src="https://yourwebsite.com/images/custom2.png" />
-      <div class="overlay"><div class="overlay-text">Custom 2</div></div>
+    <a href="https://314356563.netlify.app/" target="_blank" class="image-container">
+      <img src="snow-rider-3d.png" />
+      <div class="overlay"><div class="overlay-text">Snow rider</div></div>
     </a>
-    <a href="https://example.com" target="_blank" class="image-container">
-      <img src="https://yourwebsite.com/images/custom3.png" />
-      <div class="overlay"><div class="overlay-text">Custom 3</div></div>
+    <a href="baketballstars.html" target="_blank" class="image-container">
+      <img src="baskeetballstars.avif" />
+      <div class="overlay"><div class="overlay-text">basketball stars</div></div>
     </a>
-    <a href="https://example.com" target="_blank" class="image-container">
-      <img src="https://yourwebsite.com/images/custom4.png" />
-      <div class="overlay"><div class="overlay-text">Custom 4</div></div>
+    <a href="boxingrandom.html" target="_blank" class="image-container">
+      <img src="boxing random.jpeg"/>
+      <div class="overlay"><div class="overlay-text">boxing random</div></div>
+    </a>
+    <a href="https://example.com/game5" target="_blank" class="image-container">
+      <img src="https://yourwebsite.com/images/custom5.png" />
+      <div class="overlay"><div class="overlay-text">Custom 5</div></div>
+    </a>
+    <a href="https://example.com/game6" target="_blank" class="image-container">
+      <img src="https://yourwebsite.com/images/custom6.png" />
+      <div class="overlay"><div class="overlay-text">Custom 6</div></div>
+    </a>
+    <a href="https://example.com/game7" target="_blank" class="image-container">
+      <img src="https://yourwebsite.com/images/custom7.png" />
+      <div class="overlay"><div class="overlay-text">Custom 7</div></div>
+    </a>
+    <a href="https://example.com/game8" target="_blank" class="image-container">
+      <img src="https://yourwebsite.com/images/custom8.png" />
+      <div class="overlay"><div class="overlay-text">Custom 8</div></div>
+    </a>
+    <a href="https://example.com/game9" target="_blank" class="image-container">
+      <img src="https://yourwebsite.com/images/custom9.png" />
+      <div class="overlay"><div class="overlay-text">Custom 9</div></div>
+    </a>
+    <a href="https://example.com/game10" target="_blank" class="image-container">
+      <img src="https://yourwebsite.com/images/custom10.png" />
+      <div class="overlay"><div class="overlay-text">Custom 10</div></div>
     </a>
   </div>
 </body>
