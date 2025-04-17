@@ -106,6 +106,7 @@
       position: relative;
     }
 
+    .sidebar.expanded ~ #search-wrapper,
     .sidebar.expanded ~ .content {
       margin-left: 200px;
     }
@@ -159,6 +160,25 @@
 
     .overlay-text {
       color: white;
+      text-align: center;
+      padding: 10px;
+    }
+
+    #search-wrapper {
+      margin-left: 50px;
+      padding: 20px;
+      transition: margin-left 0.3s ease-in-out;
+    }
+
+    #searchBar {
+      width: 300px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #87CEEB;
+      background-color: #111;
+      color: #87CEEB;
+      font-size: 16px;
+      outline: none;
     }
   </style>
 
@@ -184,7 +204,19 @@
       }
     }
 
-    window.onload = generateStars;
+    document.addEventListener('DOMContentLoaded', () => {
+      generateStars();
+
+      const searchBar = document.getElementById('searchBar');
+      searchBar.addEventListener('input', function () {
+        const query = this.value.toLowerCase();
+        const cards = document.querySelectorAll('.image-container');
+        cards.forEach(card => {
+          const label = card.querySelector('.overlay-text').textContent.toLowerCase();
+          card.style.display = label.includes(query) ? 'block' : 'none';
+        });
+      });
+    });
   </script>
 </head>
 
@@ -203,9 +235,13 @@
     </ul>
   </div>
 
-  <!-- Content Area -->
+  <!-- Search Bar -->
+  <div id="search-wrapper">
+    <input type="text" id="searchBar" placeholder="Search games..." />
+  </div>
+
+  <!-- Content Area with all games -->
   <div class="content">
-    <!-- Row 1 -->
     <a href="slowroads.html" target="_blank" class="image-container">
       <img src="slowroadslogo.jpg" />
       <div class="overlay"><div class="overlay-text">slowroads</div></div>
@@ -230,8 +266,6 @@
       <img src="boxing random.jpeg"/>
       <div class="overlay"><div class="overlay-text">boxing random</div></div>
     </a>
-    
-    <!-- Row 2 -->
     <a href="monkey mart.html" target="_blank" class="image-container">
       <img src="monkeymart-half.png" />
       <div class="overlay"><div class="overlay-text">Monkey mart</div></div>
@@ -256,31 +290,29 @@
       <img src="images.jpeg" />
       <div class="overlay"><div class="overlay-text">Polytrack</div></div>
     </a>
-
-    <!-- Row 3 (added to complete the third row) -->
-    <a href="newgame1.html" target="_blank" class="image-container">
-      <img src="newgame1.jpg" />
-      <div class="overlay"><div class="overlay-text">New Game 1</div></div>
+    <a href="stickmanhook.html" target="_blank" class="image-container">
+      <img src="stickman-hook.png" />
+      <div class="overlay"><div class="overlay-text">Stickman hook</div></div>
     </a>
-    <a href="newgame2.html" target="_blank" class="image-container">
-      <img src="newgame2.jpg" />
-      <div class="overlay"><div class="overlay-text">New Game 2</div></div>
+    <a href="slope.html" target="_blank" class="image-container">
+      <img src="slope-game-logo4.jpg" />
+      <div class="overlay"><div class="overlay-text">Slope</div></div>
     </a>
-    <a href="newgame3.html" target="_blank" class="image-container">
-      <img src="newgame3.jpg" />
-      <div class="overlay"><div class="overlay-text">New Game 3</div></div>
+    <a href="burgerandfrights.html" target="_blank" class="image-container">
+      <img src="Wda88F.png" />
+      <div class="overlay"><div class="overlay-text">Burger and frights</div></div>
     </a>
-    <a href="newgame4.html" target="_blank" class="image-container">
-      <img src="newgame4.jpg" />
-      <div class="overlay"><div class="overlay-text">New Game 4</div></div>
+    <a href="vex1.html" target="_blank" class="image-container">
+      <img src="vex-pc-full-version.jpg" />
+      <div class="overlay"><div class="overlay-text">Vex 1</div></div>
     </a>
-    <a href="newgame5.html" target="_blank" class="image-container">
-      <img src="newgame5.jpg" />
-      <div class="overlay"><div class="overlay-text">New Game 5</div></div>
+    <a href="updatedslowroads.html" target="_blank" class="image-container">
+      <img src="slowroadslogo.jpg" />
+      <div class="overlay"><div class="overlay-text">updated slowroads</div></div>
     </a>
-    <a href="newgame6.html" target="_blank" class="image-container">
-      <img src="newgame6.jpg" />
-      <div class="overlay"><div class="overlay-text">New Game 6</div></div>
+    <a href="basketballbros.html" target="_blank" class="image-container">
+      <img src="basketballbros.jpeg" />
+      <div class="overlay"><div class="overlay-text">basketball bros</div></div>
     </a>
   </div>
 </body>

@@ -213,38 +213,14 @@
       iframe.src = iframe.src;
     }
 
-    // Prevent Inspect Element
-    document.addEventListener('contextmenu', function (e) {
-      e.preventDefault();
-      alert("No inspect element 😉");
-    });
-
-    document.addEventListener('keydown', function(e) {
-      // Disable F12
-      if (e.keyCode == 123) {
-        e.preventDefault();
-        alert("Think you can just look around? Nope! 😉");
-      }
-
-      // Disable Ctrl+Shift+I
-      if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
-        e.preventDefault();
-        alert("Trying to be sneaky, huh? 😉");
-      }
-
-      // Disable Ctrl+U (View Source) - optional, but related
-      if (e.ctrlKey && e.keyCode == 85) {
-        e.preventDefault();
-        alert("Source code is for those who built it! 😉");
-      }
-    });
-
     window.onload = generateStars;
   </script>
 </head>
 <body>
+  <!-- Star Background -->
   <div id="star-container"></div>
 
+  <!-- Sidebar -->
   <div class="sidebar">
     <div class="hamburger-icon" onclick="toggleMenu()">
       <i class="fa-solid fa-bars"></i>
@@ -258,10 +234,11 @@
     </ul>
   </div>
 
+  <!-- Main Content -->
   <div class="content">
-    <div class="game-title">My Cool Game</div>
+    <div class="game-title">Basketball bros</div>
     <div class="game-frame-container">
-      <iframe id="gameFrame" src="https://example.com" allowfullscreen></iframe>
+      <iframe id="gameFrame" src="https://riccccccooooooo.h0rst.me/semag/basketbros/index.html" allowfullscreen></iframe>
     </div>
     <div class="controls">
       <button onclick="enterFullscreen()"><i class="fa-solid fa-expand"></i> Fullscreen</button>
