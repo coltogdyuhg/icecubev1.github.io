@@ -8,29 +8,52 @@
         body {
             background-color: black;
             margin: 0;
-            display: flex; /* Use flexbox for overall layout */
-            align-items: center; /* Vertically center content */
+            display: flex;
+            align-items: center;
             min-height: 100vh;
             color: #ccc;
             font-family: sans-serif;
-            overflow-x: hidden; /* Prevent horizontal scrollbar when menu expands */
-            position: relative; /* For positioning the stars and the warning */
+            overflow-x: hidden;
+            position: relative;
         }
 
         .warning-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
-            color: red;
-            font-size: 2em;
-            font-weight: bold;
+            top: 20px; /* Position from the top */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(34, 34, 34, 0.9); /* Similar dark background with transparency */
+            color: #f0e68c; /* Goldenrod color */
+            border: 1px solid #f0e68c;
+            padding: 10px 20px;
+            border-radius: 8px;
+            z-index: 1000;
+            box-shadow: 0 0 15px #f0e68c;
             display: flex;
-            justify-content: center;
             align-items: center;
-            z-index: 1000; /* Ensure it's on top of everything */
+            gap: 10px; /* Space between text and button */
+            font-size: 1rem;
+        }
+
+        .warning-text {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .warning-close-button {
+            margin-left: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #f0e68c;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .warning-close-button:hover {
+            color: #fff;
         }
 
         .star {
@@ -38,10 +61,10 @@
             background-color: white;
             border-radius: 50%;
             opacity: 0.5;
-            animation: twinkle 2s ease-in-out infinite, float 180s linear infinite; /* Twinkle and float animations */
+            animation: twinkle 2s ease-in-out infinite, float 180s linear infinite;
         }
 
-        /* Example of more stars with varied properties */
+        /* Star styles remain the same */
         .star:nth-child(1) { width: 2px; height: 2px; top: 10%; left: 20%; animation-delay: 0s, 10s; }
         .star:nth-child(2) { width: 3px; height: 3px; top: 30%; left: 70%; animation-delay: 1s, 30s; }
         .star:nth-child(3) { width: 1px; height: 1px; top: 50%; left: 40%; animation-delay: 0.5s, 60s; }
@@ -71,32 +94,32 @@
 
         @keyframes float {
             0% { transform: translate(0, 0); }
-            50% { transform: translate(3vw, -2vh); } /* Slight random movement */
+            50% { transform: translate(3vw, -2vh); }
             100% { transform: translate(0, 0); }
         }
 
         .sidebar {
             background-color: #111;
-            color: #87CEEB; /* Initial blue color */
-            width: 50px; /* Initial small width */
+            color: #87CEEB;
+            width: 50px;
             height: 100vh;
             position: fixed;
             top: 0;
             left: 0;
-            z-index: 20; /* Ensure it's above other content */
-            overflow-x: hidden; /* Hide menu items when collapsed */
-            transition: width 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth expand/collapse and glow */
+            z-index: 20;
+            overflow-x: hidden;
+            transition: width 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             padding-top: 20px;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Center the hamburger icon */
-            box-shadow: none; /* Initially no glow */
+            align-items: center;
+            box-shadow: none;
         }
 
         .sidebar.expanded {
-            width: 200px; /* Expanded width */
-            align-items: flex-start; /* Align items to the left when expanded */
-            box-shadow: 0 0 15px #87CEEB; /* Add the glowing blue border */
+            width: 200px;
+            align-items: flex-start;
+            box-shadow: 0 0 15px #87CEEB;
         }
 
         .hamburger-icon {
@@ -116,38 +139,42 @@
 
         .menu-items li {
             padding: 15px 20px;
-            text-decoration: none;
             color: #87CEEB;
-            display: block; /* Make each item a block for full width click area */
-            opacity: 0; /* Initially hidden */
-            transform: translateX(-20px); /* Initially moved to the left */
+            display: block;
+            opacity: 0;
+            transform: translateX(-20px);
             transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .menu-items li a {
+            color: #87CEEB;
+            text-decoration: none;
         }
 
         .sidebar.expanded .menu-items li {
             opacity: 1;
             transform: translateX(0);
-            transition-delay: 0.2s; /* Delay to appear after expansion */
+            transition-delay: 0.2s;
         }
 
         .menu-items li:hover {
-            color: #ADD8E6; /* Brighter blue on hover */
+            color: #ADD8E6;
             text-shadow: 0 0 8px #ADD8E6;
             cursor: pointer;
         }
 
         .content {
-            flex-grow: 1; /* Take up remaining horizontal space */
+            margin-left: 50px;
+            transition: margin-left 0.3s ease-in-out;
+            padding: 20px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            padding-left: 70px; /* Adjust for the initial sidebar width */
-            transition: padding-left 0.3s ease-in-out;
+            justify-content: center;
         }
 
         .sidebar.expanded ~ .content {
-            padding-left: 220px; /* Adjust for the expanded sidebar width */
+            margin-left: 200px;
         }
 
         .logo-container {
@@ -200,16 +227,16 @@
             background-color: #222;
             border: 1px solid #444;
             border-radius: 5px;
-            width: 300px; /* Adjust as needed */
-            height: 200px; /* Adjust as needed */
-            overflow: hidden; /* Hide images that go outside the box */
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
             position: relative;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Subtle initial shadow */
-            transition: box-shadow 0.3s ease-in-out; /* Smooth transition for hover effect */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            transition: box-shadow 0.3s ease-in-out;
         }
 
         .image-box:hover {
-            box-shadow: 0 0 15px #8A2BE2; /* Purple glow on hover */
+            box-shadow: 0 0 15px #8A2BE2;
         }
 
         .box-controls {
@@ -243,13 +270,22 @@
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>
-        // Add the warning overlay to the DOM when the page loads
         document.addEventListener('DOMContentLoaded', function() {
             const warningOverlay = document.createElement('div');
             warningOverlay.classList.add('warning-overlay');
-            warningOverlay.textContent = 'CURRENTLY DOWN';
+            warningOverlay.innerHTML = `
+                <span class="warning-text">
+                    <i class="fa-solid fa-triangle-exclamation"></i> CURRENTLY DOWN
+                </span>
+                <button class="warning-close-button" onclick="dismissWarning()">×</button>
+            `;
             document.body.appendChild(warningOverlay);
         });
+
+        function dismissWarning() {
+            const warningOverlay = document.querySelector('.warning-overlay');
+            warningOverlay.style.display = 'none';
+        }
 
         const phrases = [
             "join our discord",
@@ -274,9 +310,9 @@
         dynamicTextElement.textContent = phrases[randomIndex];
 
         function refreshImage(boxId) {
-            const imgElement = document.querySelector(`#${boxId} img`); // Fixed query selector
+            const imgElement = document.querySelector(`#${boxId} img`);
             const imageUrls = [
-                "photo here", // Placeholder for actual image URLs
+                "photo here",
                 "https://via.placeholder.com/300/FF00FF/FFFFFF?Text=Another+One",
                 "https://via.placeholder.com/300/FFFF00/000000?Text=And+Yet+Again"
             ];
@@ -285,14 +321,13 @@
         }
 
         function toggleFullscreen(boxId) {
-            alert(`Fullscreen requested for box: ${boxId}`); // Fixed alert message
+            alert(`Fullscreen requested for box: ${boxId}`);
         }
 
         function toggleMenu() {
             const sidebar = document.querySelector('.sidebar');
             const content = document.querySelector('.content');
             sidebar.classList.toggle('expanded');
-            // The content padding is handled by CSS based on the 'expanded' class
         }
     </script>
 </head>
@@ -322,15 +357,7 @@
             <i class="fa-solid fa-bars"></i>
         </div>
         <ul class="menu-items">
-            <li><a href="main-home.html" style="color: #87CEEB;">Home</a></li>
-            <li><a href="game page.html" style="color: #87CEEB;">Games</a></li>
-            <li><a href="apps.html" style="color: #87CEEB;">Apps</a></li>
-            <li><a href="https://discord.gg/KedkxJCkyc" style="color: #87CEEB;">Discord</a></li>
-            <li>Partners</li>
-            <li><a href="version updates.html" style="color: #87CEEB;">Version Info</a></li>
-        </ul>
-    </div>
-    <div class="content">
-        <div class="logo-container">
-            <span class="ice">ice</span><span class="cube">cube</span>
-        </div>
+            <li><a href="main-home.html">Home</a></li>
+            <li><a href="game page.html">Games</a></li>
+            <li><a href="apps.html">Apps</a></li>
+            <li><a href="https
