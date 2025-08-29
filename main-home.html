@@ -224,6 +224,67 @@
             height: 100%;
             object-fit: cover;
         }
+
+        /* Styles for the popup message */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .popup-content {
+            background-color: #333;
+            color: #ccc;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            max-width: 400px;
+            position: relative;
+        }
+
+        .popup-content h2 {
+            font-size: 2em;
+            color: yellow; /* Sets the WARNING text to yellow */
+            text-shadow: 0 0 5px yellow;
+            margin-bottom: 10px;
+            animation: pulse 1.5s infinite; /* Adds a pulsing effect */
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .popup-content p {
+            font-size: 1.2em;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .popup-content button {
+            background-color: #87CEEB;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .popup-content button:hover {
+            background-color: #ADD8E6;
+        }
+
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>
@@ -270,9 +331,29 @@
             sidebar.classList.toggle('expanded');
             // The content padding is handled by CSS based on the 'expanded' class
         }
+
+        // Functions for the popup
+        function showPopup() {
+            document.getElementById('update-popup').style.display = 'flex';
+        }
+
+        function hidePopup() {
+            document.getElementById('update-popup').style.display = 'none';
+        }
+
+        // Show the popup automatically when the page loads
+        window.onload = showPopup;
     </script>
 </head>
 <body>
+    <div id="update-popup" class="popup-overlay">
+        <div class="popup-content">
+            <h2>WARNING</h2>
+            <p>This website will begin a series of updates for a better game experience and for adding more games.</p>
+            <button onclick="hidePopup()">OK</button>
+        </div>
+    </div>
+    
     <div class="star"></div>
     <div class="star"></div>
     <div class="star"></div>
@@ -293,6 +374,7 @@
     <div class="star"></div>
     <div class="star"></div>
     <div class="star"></div>
+
     <div class="sidebar">
         <div class="hamburger-icon" onclick="toggleMenu()">
             <i class="fa-solid fa-bars"></i>
