@@ -1,1 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ixl</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            display: flex; /* Use flexbox for overall layout */
+            align-items: center; /* Vertically center content */
+            min-height: 100vh;
+            color: #ccc;
+            font-family: sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scrollbar when menu expands */
+            position: relative; /* For positioning the stars */
+        }
 
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: twinkle 2s ease-in-out infinite, float 180s linear infinite; /* Twinkle and float animations */
+        }
+
+        /* Example of more stars with varied properties */
+        .star:nth-child(1) { width: 2px; height: 2px; top: 10%; left: 20%; animation-delay: 0s, 10s; }
+        .star:nth-child(2) { width: 3px; height: 3px; top: 30%; left: 70%; animation-delay: 1s, 30s; }
+        .star:nth-child(3) { width: 1px; height: 1px; top: 50%; left: 40%; animation-delay: 0.5s, 60s; }
+        .star:nth-child(4) { width: 4px; height: 4px; top: 70%; left: 10%; animation-delay: 1.5s, 90s; }
+        .star:nth-child(5) { width: 2px; height: 2px; top: 90%; left: 90%; animation-delay: 0.2s, 15s; }
+        .star:nth-child(6) { width: 1px; height: 1px; top: 15%; left: 85%; animation-delay: 0.8s, 120s; }
+        .star:nth-child(7) { width: 3px; height: 3px; top: 45%; left: 5%; animation-delay: 1.2s, 45s; }
+        .star:nth-child(8) { width: 2px; height: 2px; top: 60%; left: 60%; animation-delay: 0.3s, 75s; }
+        .star:nth-child(9) { width: 4px; height: 4px; top: 25%; left: 30%; animation-delay: 1.7s, 150s; }
+        .star:nth-child(10) { width: 1px; height: 1px; top: 80%; left: 50%; animation-delay: 0.1s, 105s; }
+        .star:nth-child(11) { width: 2px; height: 2px; top: 5%; left: 55%; animation-delay: 0.6s, 20s; }
+        .star:nth-child(12) { width: 3px; height: 3px; top: 75%; left: 25%; animation-delay: 1.9s, 80s; }
+        .star:nth-child(13) { width: 1px; height: 1px; top: 35%; left: 95%; animation-delay: 0.4s, 130s; }
+        .star:nth-child(14) { width: 4px; height: 4px; top: 95%; left: 45%; animation-delay: 1.1s, 55s; }
+        .star:nth-child(15) { width: 2px; height: 2px; top: 20%; left: 5%; animation-delay: 0.7s, 165s; }
+        .star:nth-child(16) { width: 1px; height: 1px; top: 65%; left: 75%; animation-delay: 0.2s, 35s; }
+        .star:nth-child(17) { width: 3px; height: 3px; top: 10%; left: 5%; animation-delay: 1.5s, 95s; }
+        .star:nth-child(18) { width: 2px; height: 2px; top: 40%; left: 90%; animation-delay: 0.9s, 140s; }
+        .star:nth-child(19) { width: 4px; height: 4px; top: 85%; left: 35%; animation-delay: 0.5s, 25s; }
+        .star:nth-child(20) { width: 1px; height: 1px; top: 25%; left: 65%; animation-delay: 1.8s, 115s; }
+
+        @keyframes twinkle {
+            0% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+            100% { opacity: 0.5; }
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(3vw, -2vh); } /* Slight random movement */
+            100% { transform: translate(0, 0); }
+        }
+
+        .sidebar {
+            background-color: #111;
+            color: #87CEEB; /* Initial blue color */
+            width: 50px; /* Initial small width */
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 20; /* Ensure it's above other content */
+            overflow-x: hidden; /* Hide menu items when collapsed */
+            transition: width 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth expand/collapse and glow */
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center the hamburger icon */
+            box-shadow: none; /* Initially no glow */
+        }
+
+        .sidebar.expanded {
+            width: 200px; /* Expanded width */
+            align-items: flex-start; /* Align items to the left when expanded */
+            box-shadow: 0 0 15px #87CEEB; /* Add the glowing blue border */
+        }
+
+        .hamburger-icon {
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 10px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 5px #87CEEB;
+        }
+
+        .menu-items {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .menu-items li {
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #87CEEB;
+            display: block; /* Make each item a block for full width click area */
+            opacity: 0; /* Initially hidden */
+            transform: translateX(-20px); /* Initially moved to the left */
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .sidebar.expanded .menu-items li {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 0.2s; /* Delay to appear after expansion */
+        }
+
+        .menu-items li:hover {
+            color: #ADD8E6; /* Brighter blue on hover */
+            text-shadow: 0 0 8px #ADD8E6;
+            cursor: pointer;
+        }
+
+        .content {
+            flex-grow: 1; /* Take up remaining horizontal space */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-left: 70px; /* Adjust for the initial sidebar width */
+            transition: padding-left 0.3s ease-in-out;
+        }
+
+        .sidebar.expanded ~ .content {
+            padding-left: 220px; /* Adjust for the expanded sidebar width */
+        }
+
+        .logo-container {
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .ice {
+            font-size: 4em;
+            color: #ADD8E6;
+            text-shadow: 0 0 10px #87CEEB;
+            font-weight: bold;
+        }
+
+        .cube {
+            font-size: 4em;
+            color: #87CEEB;
+            text-shadow: 0 0 12px #ADD8E6;
+            font-weight: 900;
+        }
+
+        #dynamic-text {
+            font-size: 1.2em;
+            font-weight: normal;
+            color: #ADD8E6;
+            text-shadow: 0 0 8px #87CEEB;
+            opacity: 0;
+            animation: fadeInText 2s ease-in-out 2s forwards;
+            margin-bottom: 30px;
+        }
+
+        @keyframes fadeInText {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .image-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .image-box {
+            background-color: #222;
+            border: 1px solid #444;
+            border-radius: 5px;
+            width: 300px; /* Adjust as needed */
+            height: 200px; /* Adjust as needed */
+            overflow: hidden; /* Hide images that go outside the box */
+            position: relative;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Subtle initial shadow */
+            transition: box-shadow 0.3s ease-in-out; /* Smooth transition for hover effect */
+        }
+
+        .image-box:hover {
+            box-shadow: 0 0 15px #8A2BE2; /* Purple glow on hover */
+        }
+
+        .box-controls {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #eee;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 5px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            z-index: 10;
+            border-bottom: 1px solid #444;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .control-icon {
+            font-size: 1.2em;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Styles for the popup message */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .popup-content {
+            background-color: #333;
+            color: #ccc;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            max-width: 400px;
+            position: relative;
+        }
+
+        .popup-content h2 {
+            font-size: 2em;
+            color: yellow; /* Sets the WARNING text to yellow */
+            text-shadow: 0 0 5px yellow;
+            margin-bottom: 10px;
+            animation: pulse 1.5s infinite; /* Adds a pulsing effect */
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .popup-content p {
+            font-size: 1.2em;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .popup-content button {
+            background-color: #87CEEB;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .popup-content button:hover {
+            background-color: #ADD8E6;
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        const phrases = [
+            "join our discord",
+            "heeeello",
+            "LEBROOON",
+            "door+door=clock",
+            "street light",
+            "scoreboard",
+            "icecube+water",
+            "water",
+            "want to request ideas? join are discord",
+            "the release date of icecube is...",
+            "jan 2 2025",
+            "fire",
+            "shooting star",
+            "mercury",
+            "have a site? lets partner!"
+        ];
+
+        const dynamicTextElement = document.getElementById('dynamic-text');
+        const randomIndex = Math.floor(Math.random() * phrases.length);
+        dynamicTextElement.textContent = phrases[randomIndex];
+
+        function refreshImage(boxId) {
+            const imgElement = document.querySelector(`#${boxId} img`); // Fixed query selector
+            const imageUrls = [
+                "photo here", // Placeholder for actual image URLs
+                "https://via.placeholder.com/300/FF00FF/FFFFFF?Text=Another+One",
+                "https://via.placeholder.com/300/FFFF00/000000?Text=And+Yet+Again"
+            ];
+            const randomImageIndex = Math.floor(Math.random() * imageUrls.length);
+            imgElement.src = imageUrls[randomImageIndex];
+        }
+
+        function toggleFullscreen(boxId) {
+            alert(`Fullscreen requested for box: ${boxId}`); // Fixed alert message
+        }
+
+        function toggleMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            const content = document.querySelector('.content');
+            sidebar.classList.toggle('expanded');
+            // The content padding is handled by CSS based on the 'expanded' class
+        }
+
+        // Functions for the popup
+        function showPopup() {
+            document.getElementById('update-popup').style.display = 'flex';
+        }
+
+        function hidePopup() {
+            document.getElementById('update-popup').style.display = 'none';
+        }
+
+        // Show the popup automatically when the page loads
+        window.onload = showPopup;
+    </script>
+</head>
+<body>
+    <div id="update-popup" class="popup-overlay">
+        <div class="popup-content">
+            <h2>WARNING</h2>
+            <p>This website will begin a series of updates for a better game experience and for adding more games.</p>
+            <button onclick="hidePopup()">OK</button>
+        </div>
+    </div>
+    
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+
+    <div class="sidebar">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <ul class="menu-items">
+            <li><a href="main-home.html" style="color: #87CEEB;">Home</a></li>
+            <li><a href="game page.html" style="color: #87CEEB;">Games</a></li>
+            <li><a href="apps.html" style="color: #87CEEB;">Apps</a></li>
+            <li><a href="https://discord.gg/KedkxJCkyc" style="color: #87CEEB;">Discord</a></li>
+            <li>Partners</li>
+            <li><a href="version updates.html" style="color: #87CEEB;">Version Info</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="logo-container">
+            <span class="ice">ice</span><span class="cube">cube</span>
+        </div>
+        <p id="dynamic-text"></p>
+        <div class="image-container">
+            <div class="image-box" id="image-box-1">
+                <div class="box-controls">
+                    <i class="fa-solid fa-expand control-icon" onclick="toggleFullscreen('image-box-1')"></i>
+                    <i class="fa-solid fa-sync-alt control-icon" onclick="refreshImage('image-box-1')"></i>
+                </div>
+                <img src="standard_1.gif" alt="Image 1">
+            </div>
+            <div class="image-box" id="image-box-2">
+                <div class="box-controls">
+                    <i class="fa-solid fa-expand control-icon" onclick="toggleFullscreen('image-box-2')"></i>
+                    <i class="fa-solid fa-sync-alt control-icon" onclick="refreshImage('image-box-2')"></i>
+                </div>
+                <img src="Untitled presentation.png" alt="Image 2">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
