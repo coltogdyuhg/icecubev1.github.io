@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ixl</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+
+  <style>
+    body {
+      background-color: black;
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Star Background Container */
+    #star-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      background-color: white;
+      border-radius: 50%;
+      opacity: 0.5;
+      animation: twinkle 2s ease-in-out infinite, float 180s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 0.8; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(3vw, -2vh); }
+    }
+
+    .sidebar {
+      background-color: #111;
+      color: #87CEEB;
+      width: 50px;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      overflow-x: hidden;
+      transition: width 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      padding-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: none;
+    }
+
+    .sidebar.expanded {
+      width: 200px;
+      align-items: flex-start;
+      box-shadow: 0 0 15px #87CEEB;
+    }
+
+    .hamburger-icon {
+      font-size: 1.5em;
+      cursor: pointer;
+      padding: 10px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 5px #87CEEB;
+    }
+
+    .menu-items {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+
+    .menu-items li {
+      padding: 15px 20px;
+      color: #87CEEB;
+      display: block;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .menu-items li a {
+      color: #87CEEB;
+      text-decoration: none;
+    }
+
+    .sidebar.expanded .menu-items li {
+      opacity: 1;
+      transform: translateX(0);
+      transition-delay: 0.2s;
+    }
+
+    .menu-items li:hover {
+      color: #ADD8E6;
+      text-shadow: 0 0 8px #ADD8E6;
+      cursor: pointer;
+    }
+
+    .content {
+      margin-left: 50px;
+      transition: margin-left 0.3s ease-in-out;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      position: relative;
+    }
+
+    .sidebar.expanded ~ .content {
+      margin-left: 200px;
+    }
+
+    .game-title {
+      font-size: 2em;
+      color: #87CEEB;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #87CEEB;
+      text-align: center;
+    }
+
+    .game-frame-container {
+      width: 90%;
+      max-width: 1000px;
+      height: 600px;
+      border: 2px solid #87CEEB;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 0 20px #87CEEB;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .controls {
+      margin-top: 15px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .controls button {
+      background-color: #111;
+      border: 1px solid #87CEEB;
+      color: #87CEEB;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-shadow: 0 0 5px #87CEEB;
+    }
+
+    .controls button:hover {
+      background-color: #87CEEB;
+      color: black;
+      box-shadow: 0 0 10px #87CEEB;
+    }
+  </style>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.sidebar').classList.toggle('expanded');
+    }
+
+    function generateStars() {
+      const starContainer = document.getElementById("star-container");
+      for (let i = 0; i < 150; i++) {
+        const star = document.createElement("div");
+        star.classList.add("star");
+        const size = Math.random() * 3 + 1 + "px";
+        const top = Math.random() * 100 + "%";
+        const left = Math.random() * 100 + "%";
+        star.style.width = size;
+        star.style.height = size;
+        star.style.top = top;
+        star.style.left = left;
+        starContainer.appendChild(star);
+      }
+    }
+
+    function enterFullscreen() {
+      const iframe = document.getElementById("gameFrame");
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.msRequestFullscreen) {
+        iframe.msRequestFullscreen();
+      }
+    }
+
+    function refreshIframe() {
+      const iframe = document.getElementById("gameFrame");
+      iframe.src = iframe.src;
+    }
+
+    window.onload = generateStars;
+  </script>
+</head>
+<body>
+  <!-- Star Background -->
+  <div id="star-container"></div>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="hamburger-icon" onclick="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+    <ul class="menu-items">
+      <li><a href="main-home.html">Home</a></li>
+      <li><a href="game page.html">Games</a></li>
+      <li><a href="apps.html">Apps</a></li>
+      <li><a href="comingsoon.html">Settings</a></li>
+      <li><a href="https://discord.gg/KedkxJCkyc">Discord</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <div class="game-title">wheelie bike 2</div>
+    <div class="game-frame-container">
+      <iframe id="gameFrame" src="https://uiguyuiykjyyuhjujhkhughjklgjcnmh.netlify.app" allowfullscreen></iframe>
+    </div>
+    <div class="controls">
+      <button onclick="enterFullscreen()"><i class="fa-solid fa-expand"></i> Fullscreen</button>
+      <button onclick="refreshIframe()"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+    </div>
+  </div>
+</body>
+</html>
