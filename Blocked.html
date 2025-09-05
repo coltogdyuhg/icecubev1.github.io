@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Access Denied</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #1a1a1a;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #ff4d4d;
+    }
+    p {
+      font-size: 1.2rem;
+    }
+    #countdown {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #00ffcc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Access Denied</h1>
+  <p>You will be redirected in <span id="countdown">10</span> seconds...</p>
+
+  <script>
+    let countdown = 10;
+    const countdownElement = document.getElementById("countdown");
+
+    const interval = setInterval(() => {
+      countdown--;
+      countdownElement.textContent = countdown;
+
+      if (countdown <= 0) {
+        clearInterval(interval);
+        window.location.href = "learningspot.html";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
