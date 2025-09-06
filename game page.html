@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
 
     <style>
+        /* ... (Your existing CSS here) ... */
         body {
             background-color: black;
             margin: 0;
@@ -183,12 +184,23 @@
     </style>
 
     <script>
-        // Check referrer before the rest of the page loads
         const referrer = document.referrer;
-        // Adjust this to be your actual domain if not on a local server
-        const allowedReferrer = 'main-home.html'; 
+        
+        // Define an array of allowed pages
+        const allowedPages = [
+            'main-home.html',
+            'game page.html'
+        ];
+        
+        // Check if the referrer URL includes any of the allowed page names
+        let isAllowed = false;
+        allowedPages.forEach(page => {
+            if (referrer.includes(page)) {
+                isAllowed = true;
+            }
+        });
 
-        if (!referrer.includes(allowedReferrer)) {
+        if (!isAllowed) {
             window.location.replace('blocked.html');
         }
     </script>
